@@ -1,0 +1,92 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-bottom: 15px; 
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* 水平分割线 */
+hr {
+    color: #D3D3D3;
+    display: flex;
+    justify-self: center;
+    border: 0.5px solid;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.dark{
+    background-color: #333;
+    color: white;
+}
+
+.dark h2{
+    color:rgb(160,212,237);
+}
+
+/* Content Wrapper */
+.content {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+
+}
+
+/* Header Styling */
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    font-weight: normal;  /* 与 style.css 中的 h1/h2 一致 */
+    margin-top: 0px;
+    margin-bottom: 5px;    /* h1 的间距 */
+    /* 可以根据需要调整字体大小，比如维持原先 35px 或设置为 style.css 中 h1 近似值 */
+    font-size: 35px; 
+}
+
+.subtitle {
+    font-size: 15px;
+    font-weight: normal;
+    color: #006EB6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+
+}
+
+/* Paragraph Styling */
+.content p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+
+/* Ordered List Styling */
+ol {
+    margin: 10px 0;
+    padding-left: 30px;
+    text-align: left;
+}
+
+ol li {
+    margin-bottom: 5px;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 10px;
+}
+
+footer img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+}
