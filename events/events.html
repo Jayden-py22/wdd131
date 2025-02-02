@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events practice: ToDos</title>
+    <style>
+        .todos {
+            width: 300px;
+        }
+        .todos > li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid;
+            padding: 0.5em;
+        }
+        .todos p {
+            margin: 0;
+        }
+        .todos span {
+            cursor: pointer;
+        }
+        .strike {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>ToDos</h1>
+    <section>
+        <label for="todo">Enter Task</label>
+        <input name="todo" id="todo" />
+        <button id="submitTask">Enter</button>
+    </section>
+    <ul id="todoList" class="todos"></ul>
+    <script>
+        let tasks = [];
+
+        function renderTasks(tasks) {
+            const listElement = document.querySelector("#todoList");
+            listElement.innerHTML = "";
+            const html = tasks.map(taskTemplate).join("");
+            listElement.innerHTML = html;
+        }
+
+        function taskTemplate(task) {
+            return `
+                <li ${task.completed ? 'class="strike"' : ""}>
+                    <p>${task.detail}</p>
+                    <div>
+                        <span data-function="delete">❌</span>
+                        <span data-function="complete">✅</span>
+                    </div>
+                </li>`;
+        }
+
+        function newTask() {
+            const taskValue = document.querySelector("#todo").value;
+            if (taskValue.trim() === "") return;
+            tasks.push({ detail: taskValue, completed: false });
+            document.querySelector("#todo").value = "";
+            renderTasks(tasks);
+        }
+
+        function removeTask(taskElement) {
+            tasks = tasks.filter(task => task.detail !== taskElement.querySelector('p').innerText);
+            taskElement.remove();
+        }
+
+        function completeTask(taskElement) {
+            const taskIndex = tasks.findIndex(task => task.detail === taskElement.querySelector('p').innerText);
+            tasks[taskIndex].completed = !tasks[taskIndex].completed;
+            taskElement.classList.toggle("strike");
+        }
+
+        function manageTasks(event) {
+            const parent = event.target.closest("li");
+            if (event.target.dataset.function === "delete") {
+                removeTask(parent);
+            }
+            if (event.target.dataset.function === "complete") {
+                completeTask(parent);
+            }
+        }
+
+        document.querySelector("#submitTask").addEventListener("click", newTask);
+        document.querySelector("#todoList").addEventListener("click", manageTasks);
+        renderTasks(tasks);
+    </script>
+</body>
+</html>

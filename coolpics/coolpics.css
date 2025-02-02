@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
 :root {
---primary-color: #52489c;
---secondary-color: #59c3c3;
---accent-color: #f45b69;
---text-dark: #333;
---text-light: #ebebeb;
---primary-font: Arial, Helvetica,sans-serif;
---secondary-font: Mooli, san-serif;
+    --primary-color: #52489c;
+    --secondary-color: #59c3c3;
+    --accent-color: #f45b69;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: Mooli, sans-serif;
 }
 
 body {
@@ -33,41 +34,75 @@ button {
     outline: none;
 }
 
-header{
+header {
     background-color: var(--primary-color);
     color: var(--text-light);
     text-align: center;
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
+
 h1 {
     font-size: 3em;
 }
-
-
 
 main {
     text-align: center;
     color: var(--text-dark);
 }
+
 nav {
     display: flex;
     flex-direction: column;
 }
+
 img {
-	max-width: 100%;
+    max-width: 100%;
     height: 250px;
     width: 250px;
     object-fit: cover;
 }
 
-
-
-
 footer {
     background-color: var(--primary-color);
     color: var(--text-light);
     padding: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.close-viewer {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
 }
 
 @media screen and (min-width: 700px) {
@@ -86,7 +121,6 @@ footer {
         grid-template-columns: 1fr 1fr 1fr;
     }
     nav {
-        display: contents;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -95,5 +129,23 @@ footer {
     }
     button {
         display: none;
+    }
+
+    .viewer {
+        display: flex !important;
+        z-index: 5000 !important;
+    }
+
+    .close-viewer {
+        display: block !important;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        font-size: 2em;
+        background: none;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
     }
 }
