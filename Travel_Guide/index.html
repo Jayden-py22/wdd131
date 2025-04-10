@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Travel Guide</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    
+  </head>
+
+  <body>
+    <!-- ==================== Header ==================== -->
+    <header class="top-nav">
+        <div class="logo">
+          <a href="index.html"><img src="images/travelguidelogo.webp" width="100" alt="Travel Guide logo" /></a>
+        </div>
+      
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="site_plan.html">Site Plan</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+    <!-- ==================== Main ==================== -->
+    <main>
+      <!-- Hero (filled by JS) -->
+      <section class="hero" id="hero"></section>
+      
+      <!-- Search + Cards -->
+      <h2 class="section-heading">Find Your Next Adventure</h2>
+      <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search destinations..."
+      />
+
+      <section class="cards" id="dest-cards"></section>
+    </main>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+      <div class="footer-info">
+        © 2025 Travel Guide · All Rights Reserved
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>
